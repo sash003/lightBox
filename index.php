@@ -16,7 +16,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
+  <link href="css/lightBox.css" rel="stylesheet" />
+  
   <style>
 
   body{
@@ -84,9 +86,26 @@
 
   </div>
 
+<!--  <div class="lightBox2">
+
+    <?php
+    
+      $imgs = glob('img2/*');
+
+      foreach($imgs as $img) {
+        if (preg_match('/\.(jpg|png|gif)$/', $img)) {
+          echo "<div class='wrap'>
+                <img class='lightBox' src='$img'>
+                </div>";
+        }
+      }
+
+    ?>
+
+  </div>-->
+
   <script src="js/jquery-1.11.1.min.js"></script>
   <script src="js/lightBox.js"></script>
-  <script src="js/script.js"></script>
 
 </body>
 
