@@ -1,4 +1,3 @@
-;
 (function($) {
   "use strict";
 
@@ -193,26 +192,17 @@
             wW  = screen.width,
             wH  = screen.height,
             padd;
-
+            
+        options.modal.css({paddingTop: 0});
+        
         if(imW > imH){
-          if(wW/wH > 4/3){
-            options.modalImg.css({width: '70%', height: 'auto'});
-            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
-            options.modal.css({paddingTop: padd+'px'});
-          }else{
             options.modalImg.css({width: '77%', height: 'auto'});
             padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
             options.modal.css({paddingTop: padd+'px'});
-          }
         }else{
-          if(wW < wH){
-            options.modalImg.css({width: '77%', height: 'auto'});
-            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
-            options.modal.css({paddingTop: padd+'px'});
-          }else{
             options.modalImg.css({height: '77%', width: 'auto'});
-            options.modal.css({paddingTop: '12%'}); 
-          }
+            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
+            options.modal.css({paddingTop: padd}); 
         }
       }
     },
