@@ -144,7 +144,7 @@
         if (e.which == 109) {
           methods.functions.resize("-");
         }
-
+        
       },
 
       // прокрутка колесом мыши
@@ -159,81 +159,59 @@
           methods.functions.resize("-");
         }
       },
-
+      
       resize: function(direction) {
         var style = options.modalImg.attr('style'),
           newTransform = style.replace(
             /(scale.)(\d(\.\d)?)/,
             function(match, value, value2) {
-              console.log(match, value, 'yyy' + value2)
               var n = parseFloat(value2),
                 nn;
               if (direction === "+") {
                 nn = n + 0.1;
                 if (nn < 1.7) {
-                  return value + nn.toFixed(1);
+                  return value+nn.toFixed(1);
                 }
               }
               if (direction === "-") {
                 nn = n - 0.1;
                 if (nn > 0.5) {
-                  return value + nn.toFixed(1);
+                  return value+nn.toFixed(1);
                 }
               }
-              return value + n;
+              return value+n;
             });
-        console.log(newTransform)
         options.modalImg.attr('style', newTransform);
       },
-
+      
       // рассчёт размеров картинок в зависимости от многих факторов
-      setWidth: function() {
+      setWidth: function(){
         var imW = parseInt(options.modalImg.css('width')),
-          imH = parseInt(options.modalImg.css('height')),
-          blW = parseInt(options.modal.css('width')),
-          blH = parseInt(options.modal.css('height')),
-          wW = screen.width,
-          wH = screen.height,
-          padd;
+            imH = parseInt(options.modalImg.css('height')),
+            blW = parseInt(options.modal.css('width')),
+            blH = parseInt(options.modal.css('height')),
+            wW  = screen.width,
+            wH  = screen.height,
+            padd;
 
-        if (imW > imH) {
-          if (wW / wH > 4 / 3) {
-            options.modalImg.css({
-              width: '70%',
-              height: 'auto'
-            });
-            padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
-            options.modal.css({
-              paddingTop: padd + 'px'
-            });
-          } else {
-            options.modalImg.css({
-              width: '77%',
-              height: 'auto'
-            });
-            padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
-            options.modal.css({
-              paddingTop: padd + 'px'
-            });
+        if(imW > imH){
+          if(wW/wH > 4/3){
+            options.modalImg.css({width: '70%', height: 'auto'});
+            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
+            options.modal.css({paddingTop: padd+'px'});
+          }else{
+            options.modalImg.css({width: '77%', height: 'auto'});
+            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
+            options.modal.css({paddingTop: padd+'px'});
           }
-        } else {
-          if (wW < wH) {
-            options.modalImg.css({
-              width: '77%',
-              height: 'auto'
-            });
-            padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
-            options.modal.css({
-              paddingTop: padd + 'px'
-            });
-          } else {
-            options.modalImg.css({
-              height: '77%',
-              width: 'auto'
-            });
-            options.modal.css({
-              paddingTop: '12%'
-            });
+        }else{
+          if(wW < wH){
+            options.modalImg.css({width: '77%', height: 'auto'});
+            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
+            options.modal.css({paddingTop: padd+'px'});
+          }else{
+            options.modalImg.css({height: '77%', width: 'auto'});
+            options.modal.css({paddingTop: '12%'}); 
           }
         }
       }
@@ -282,4 +260,3 @@
   };
 
 }(jQuery)); // That`s all folks
-
