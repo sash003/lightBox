@@ -29,21 +29,6 @@
       position: relative;
       box-sizing: border-box;
   }
-  #closeLightBox{
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, .7);
-      display: none;
-      z-index: 999;
-      text-align: center;
-  }
-  #closeLightBox img{;
-      cursor: pointer;
-      transition: all 0.333s;
-  }
   .lightBox, .post{
       height:177px;
       cursor: pointer;
