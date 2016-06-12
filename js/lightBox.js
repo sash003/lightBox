@@ -212,7 +212,8 @@
             height: '77%',
             width: 'auto'
           });
-          padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
+          padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 1.33;
+          console.log(options.modal.css('height'), options.modalImg.css('height'), padd);
           options.modal.css({
             paddingTop: padd
           });
