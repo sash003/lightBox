@@ -1,3 +1,4 @@
+;
 (function($) {
   "use strict";
 
@@ -143,7 +144,7 @@
         if (e.which == 109) {
           methods.functions.resize("-");
         }
-        
+
       },
 
       // прокрутка колесом мыши
@@ -158,7 +159,7 @@
           methods.functions.resize("-");
         }
       },
-      
+
       resize: function(direction) {
         var style = options.modalImg.attr('style'),
           newTransform = style.replace(
@@ -169,40 +170,52 @@
               if (direction === "+") {
                 nn = n + 0.1;
                 if (nn < 1.7) {
-                  return value+nn.toFixed(1);
+                  return value + nn.toFixed(1);
                 }
               }
               if (direction === "-") {
                 nn = n - 0.1;
                 if (nn > 0.5) {
-                  return value+nn.toFixed(1);
+                  return value + nn.toFixed(1);
                 }
               }
-              return value+n;
+              return value + n;
             });
         options.modalImg.attr('style', newTransform);
       },
-      
+
       // рассчёт размеров картинок в зависимости от многих факторов
-      setWidth: function(){
+      setWidth: function() {
         var imW = parseInt(options.modalImg.css('width')),
-            imH = parseInt(options.modalImg.css('height')),
-            blW = parseInt(options.modal.css('width')),
-            blH = parseInt(options.modal.css('height')),
-            wW  = screen.width,
-            wH  = screen.height,
-            padd;
-            
-        options.modal.css({paddingTop: 0});
-        
-        if(imW > imH){
-            options.modalImg.css({width: '77%', height: 'auto'});
-            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
-            options.modal.css({paddingTop: padd+'px'});
-        }else{
-            options.modalImg.css({height: '77%', width: 'auto'});
-            padd = (parseInt(options.modal.css('height'))-parseInt(options.modalImg.css('height')))/2;
-            options.modal.css({paddingTop: padd}); 
+          imH = parseInt(options.modalImg.css('height')),
+          blW = parseInt(options.modal.css('width')),
+          blH = parseInt(options.modal.css('height')),
+          wW = screen.width,
+          wH = screen.height,
+          padd;
+
+        options.modal.css({
+          paddingTop: 0
+        });
+
+        if (imW > imH) {
+          options.modalImg.css({
+            width: '77%',
+            height: 'auto'
+          });
+          padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
+          options.modal.css({
+            paddingTop: padd + 'px'
+          });
+        } else {
+          options.modalImg.css({
+            height: '77%',
+            width: 'auto'
+          });
+          padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
+          options.modal.css({
+            paddingTop: padd
+          });
         }
       }
     },
@@ -243,9 +256,11 @@
     },
     // перезапуск плагина
     restart: function() {
-      // снимем обработчик клика по картинке и заново инициализируем плагин
-      options.images.off('click.lightBox', methods.functions.imgsClickHandler);
-      return methods.init.apply(this, arguments);
+      return this.each(function() {
+        // снимем обработчики и заново проинициализируем плагин
+        $(this).off(".lightBox");
+        methods.init.apply($(this), arguments);
+      });
     }
   };
 
