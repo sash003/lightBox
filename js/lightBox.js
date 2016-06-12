@@ -249,7 +249,7 @@
   var publicMethods = {
     // отключение плагина
     disable: function() {
-      return this.each(function() {
+      this.each(function() {
         // снимаем все обработчики событий нашего плагина
         $(this).off(".lightBox");
       });
@@ -257,9 +257,12 @@
     // перезапуск плагина
     restart: function() {
       return this.each(function() {
-        // снимем обработчики и заново проинициализируем плагин
+        // снимем обработчики и заново что-то намутил, но главное IT WORKS! :)
         $(this).off(".lightBox");
-        methods.init.apply($(this), arguments);
+        $(this).on('click.lightBox', function() {
+          $('body').find(options.activeClass).removeClass(options.activeId);
+          $(this).addClass(options.activeId);
+        });
       });
     }
   };
