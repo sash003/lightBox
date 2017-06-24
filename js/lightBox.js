@@ -200,22 +200,21 @@
 
         if (imW > imH) {
           options.modalImg.css({
-            width: '77%',
+            width: '90%',
             height: 'auto'
           });
           padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
-          options.modal.css({
-            paddingTop: padd + 'px'
+          options.modalImg.css({
+            top: padd + 'px'
           });
         } else {
           options.modalImg.css({
-            height: '77%',
+            height: '90%',
             width: 'auto'
           });
-          padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 1.33;
-          console.log(options.modal.css('height'), options.modalImg.css('height'), padd);
-          options.modal.css({
-            paddingTop: padd
+          padd = (parseInt(options.modal.css('height')) - parseInt(options.modalImg.css('height'))) / 2;
+          options.modalImg.css({
+            top: padd + 'px'
           });
         }
       }
