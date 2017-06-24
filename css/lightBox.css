@@ -1,16 +1,16 @@
-
 #closeLightBox{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, .7);
-    display: none;
-    z-index: 999;
-    text-align: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .7);
+  display: none;
+  z-index: 999;
+  text-align: center;
 }
-#closeLightBox img{;
-    cursor: pointer;
-    transition: all 0.333s;
+#closeLightBox img{
+  position: relative;
+  cursor: pointer;
+  transition: all 0.333s;
 }
